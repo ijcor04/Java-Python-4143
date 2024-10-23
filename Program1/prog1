@@ -1,0 +1,91 @@
+// Isaiah Corrales
+// This program has 5 methods, it will fill a user array and a randomly generated array and then compare the two,
+// it will also list how many matches there are if any
+
+import java.util.Scanner;
+import java.io.*;
+class program1
+{
+    //method to print out info
+    static void header()
+    {
+        System.out.println("// Isaiah Corrales");
+        System.out.println("// This program will take in a set of 6 user inputted integers (1-54) fill them into an array");
+        System.out.println("// it will then compare that array to another array filled with 6 randomly generated integers, it will also");
+        System.out.println("// print out the number of matches that are found");
+    }
+    
+    // method to traverse and print the contents of an array
+    static void printarr(int x[])
+        {
+            for (int t = 0; t < 6; t++ )
+            {
+                System.out.print(x[t] + " ");
+            }
+        }
+
+    // method to prompt and fill the user array
+    static void filluarr(int x[], Scanner y)
+    {
+        for (int i = 0; i <= 5; i++)
+        {
+            System.out.println("Please enter your " + (i + 1) + " number");
+            x [i] = y.nextInt();
+        }
+    }
+
+    //method to fill the random winning array 
+    static void fillrarr(int x,int y,int z [])
+    {
+        
+        for (int j = 0; j <= 5; j++)
+        {
+            int rand_int = (int)Math.floor(Math.random()*(y - x + 1)+ x);
+            z [j] = rand_int;
+        }
+    }
+
+    //method to compare the user array and winning array and returm the # of matches
+    static int comparr(int uar[], int war[])
+    {
+        int nummatch = 0;
+        int matches[] = new int [6];
+        for (int i = 0; i < 6; i++)
+        {
+            for(int j = 0; j < 6; j++)
+            {
+                if(uar[i]==war[j])
+                {
+                    matches [i] = war[j];
+                    nummatch++;
+                }
+            }
+        }
+        return nummatch;
+    }
+    public static void main(String[] args)
+    {
+        //declaring variables and arrays
+        int min = 1;
+        int max = 54;
+        Scanner in = new Scanner(System.in);
+        int winarr [] = new int [6];
+        int uarr [] = new int [6];
+        
+        //method calls
+        header();
+        fillrarr(min,max,winarr);
+        filluarr(uarr,in);
+
+        //print statements & more method calls
+        System.out.print("User: ");
+        printarr(uarr);
+        System.out.println(" ");
+        System.out.print("Winner: ");
+        printarr(winarr);
+        System.out.println(" ");
+        comparr(uarr,winarr);
+        int result = comparr(uarr,winarr);
+        System.out.println("Matches: " + result);
+    }
+}
