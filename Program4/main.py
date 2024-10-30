@@ -20,7 +20,7 @@ with open('output.txt', 'w') as outfile:
     outfile.write("#Isaiah Corrales\n")
     outfile.write("#Program 4 Output, CMPS-4143-102\n")
     outfile.write("#October 28th, 2024\n\n")
-    outfile.write("Extracted and Processed data:\n\n")
+    outfile.write("Formatted Results\n\n")
     line_count = 0
     #this is a for loop that calls every element that is found a "match"
     for match in matches_sorted:
