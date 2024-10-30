@@ -12,7 +12,9 @@ def binary(decimal):
       return (decimal % 2 + 10 * binary(int(decimal // 2)))
 
 # while loop that only breaks when -1 is entered
-num = 0
-while (num != -1):
+decimal = int(input("Please enter an integer (enter -1 to exit) "))
+
+while (decimal != -1):
+    print(binary(decimal))
     decimal = int(input("Please enter an integer (enter -1 to exit) "))
-       print(binary(decimal))
+    
