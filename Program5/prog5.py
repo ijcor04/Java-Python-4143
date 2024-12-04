@@ -1,10 +1,14 @@
 #Isaiah Corrales
 #Program 5, CMPS-4143-102
 #November 6th, 2024
+#This program will read in a text file with pre-existing student names and grades,
+#the program utilizes a dictionary to store the information, and there is a menu that has
+# 5 options to choose from and operates on a sentinel loop/value.
+
 import re
 grades_dict = {}
-search = r"([A-Za-z]+ [A-Za-z]+): ([\d, ]+)"
-
+search = r"^([A-Za-z\s]+)\t([\d\s]+)$"
+#opening our input file
 with open("input.txt", "r") as file:
     for line in file:
        
